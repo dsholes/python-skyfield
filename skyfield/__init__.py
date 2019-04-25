@@ -7,4 +7,4 @@ the source code, as well as the http://rhodesmill.org/skyfield/ site!
 """
 # VERSION = (1, 10)
 # __version__ = '.'.join(map(str, VERSION))
-VERSION = 'dsholes-dev'
+__version__ = 'dsholes-dev'
