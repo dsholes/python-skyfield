@@ -119,19 +119,21 @@ class EarthSatellite(VectorFunction):
         """
         sat = self.model
         minutes_past_epoch = (t._utc_float() - sat.jdsatepoch) * 1440.0
-        if getattr(minutes_past_epoch, 'shape', None):
-            position = []
-            velocity = []
-            error = []
-            for m in minutes_past_epoch:
-                p, v = sgp4(sat, m)
-                position.append(p)
-                velocity.append(v)
-                error.append(sat.error_message)
-            return array(position).T, array(velocity).T, error
-        else:
-            position, velocity = sgp4(sat, minutes_past_epoch)
-            return array(position), array(velocity), sat.error_message
+        position, velocity = sgp4(sat, minutes_past_epoch)
+        return array(position), array(velocity), sat.error_message
+        # if getattr(minutes_past_epoch, 'shape', None):
+        #     position = []
+        #     velocity = []
+        #     error = []
+        #     for m in minutes_past_epoch:
+        #         p, v = sgp4(sat, m)
+        #         position.append(p)
+        #         velocity.append(v)
+        #         error.append(sat.error_message)
+        #     return array(position).T, array(velocity).T, error
+        # else:
+        #     position, velocity = sgp4(sat, minutes_past_epoch)
+        #     return array(position), array(velocity), sat.error_message
 
     def ITRF_position_velocity_error(self, t):
         """Return the ITRF position, velocity, and error at time `t`.
