@@ -16,7 +16,7 @@ setup(
     license='MIT',
     author='Brandon Rhodes',
     author_email='brandon@rhodesmill.org',
-    url='http://github.com/brandon-rhodes/python-skyfield/',
+    url='http://github.com/dsholes/python-skyfield/tree/performance/time-as-vector',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
@@ -44,7 +44,7 @@ setup(
     install_requires=[
         'jplephem>=2.3',
         'numpy',
-        'sgp4>=1.4',
+        'sgp4==dsholes-dev',
         ],
     extras_require=extras,          # support "pip install skyfield[tests]"
 )
